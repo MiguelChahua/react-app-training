@@ -7,23 +7,28 @@ const users = [
 ];
 
 export const Secciones = () => {
+
+  const handleClick = (name:any) => {
+    console.log(`Contactando a ${name}`)
+  }
+
   return (
     <div className="container mt-4">
       <h2 className="mb-4 text-center">Usuarios</h2>
       <ul className="list-unstyled d-flex flex-column align-items-center gap-3">
-        {users.map((user) => (
-          <li key={user.id} className="w-100" style={{ maxWidth: '500px' }}>
+        {users.map(({id,name,description}) => (
+          <li key={id} className="w-100" style={{ maxWidth: '500px' }}>
             <div className="d-flex align-items-center bg-light p-3 rounded shadow-sm">
               <img
                 src={userImg}
-                alt={user.name}
+                alt={name}
                 className="rounded-circle me-3"
                 style={{ width: '60px', height: '60px', objectFit: 'cover' }}
               />
               <div>
-                <h5 className="mb-1 text-dark">{user.name}</h5>
-                <p className="mb-0 text-muted">{user.description}</p>
-                <button className="btn btn-primary btn-sm">Contactar</button>
+                <h5 className="mb-1 text-dark">{name}</h5>
+                <p className="mb-0 text-muted">{description}</p>
+                <button id={`${id}`} className="btn btn-primary btn-sm" onClick={() => handleClick(name)}>Contactar</button>
               </div>
             </div>
           </li>
@@ -33,4 +38,4 @@ export const Secciones = () => {
   );
 };
 
-// Se agrega formulario y coton queda min 1:26:45 Aprende REACT desde CERO - Curso COMPLETO
+// Se agrego en button id un `${}` ya que en typsript se usa restrictivamente el id en string a difereencia del JSX que si permite solo con id
