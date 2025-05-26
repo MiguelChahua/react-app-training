@@ -54,3 +54,4 @@ export const Secciones = () => {
 
 // useEffect ejecuta codigo despues del componente, es decir, ejecuta
 // toda la pagina ocomponente y luego lo que esta dentro del useEffect
+// Validando
